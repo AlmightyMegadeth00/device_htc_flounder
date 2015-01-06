@@ -20,8 +20,10 @@ PRODUCT_PACKAGES := \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# Use a prebuilt kernel for now
+TARGET_PREBUILT_KERNEL := device/htc/flounder-kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/htc/flounder-kernel/Image.gz-dtb
+LOCAL_KERNEL :=
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -112,6 +114,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/enctune.conf:system/etc/enctune.conf
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
     $(LOCAL_PATH)/nvcamera.conf:system/etc/nvcamera.conf \
     $(LOCAL_PATH)/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
@@ -153,7 +158,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
 
-ifneq ($(filter volantis volantisf, $(TARGET_PRODUCT)),)
+ifneq ($(filter flounder flounder64 ,$(TARGET_DEVICE)),)
 # Wifi-Only overlays.
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/wifi_only_overlay \
@@ -210,8 +215,8 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 
 # set default USB configuration
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp \
-    ro.adb.secure=1
+    persist.sys.usb.config=mtp,adb \
+    ro.adb.secure=0
 
 # for off charging mode
 PRODUCT_PACKAGES += \
