@@ -22,6 +22,9 @@ PRODUCT_PACKAGES := \
 
 # Use a prebuilt kernel for now
 TARGET_PREBUILT_KERNEL := device/htc/flounder-kernel
+# Because bottle service is a pile o' shit
+TARGET_NO_KERNEL := true
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL :=
 else
