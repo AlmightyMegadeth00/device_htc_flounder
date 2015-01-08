@@ -30,6 +30,16 @@ PRODUCT_PROPERTY_OVERRIDES := \
         net.dns1=8.8.8.8 \
         net.dns2=8.8.4.4
 
+# Prebuilt kernels
+ifneq ($(TARGET_PREBUILT_KERNEL),)
+  ifneq ("$(wildcard $(TARGET_PREBUILT_KERNEL))","")
+    PRODUCT_COPY_FILES += \
+      $(TARGET_PREBUILT_KERNEL):$(ANDROID_BUILD_TOP)/out/target/product/$(TARGET_DEVICE)/kernel
+  else
+    $(error no prebuilt kernel exists on path $(TARGET_PREBUILT_KERNEL)!!)
+  endif
+endif
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/htc/flounder/product.mk)
 $(call inherit-product, device/htc/flounder/device-lte.mk)
