@@ -17,4 +17,7 @@
 <resources>
     <!-- Whether to show a preference item for regulatory information in About phone -->
     <bool name="config_show_regulatory_info">false</bool>
+
+    <!-- Whether device has camera flash or torch capabilities -->
+    <bool name="has_torch">false</bool>
 </resources>
