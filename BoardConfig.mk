@@ -82,6 +82,9 @@ BOARD_USES_QCOM_HARDWARE_GPS := true
 
 # Use a prebuilt kernel for now
 TARGET_PREBUILT_KERNEL := $(ANDROID_BUILD_TOP)/device/htc/flounder-kernel/kernel
+#TARGET_KERNEL_CONFIG := flounder_defconfig
+#TARGET_KERNEL_SOURCE := kernel/tegra
+#BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
