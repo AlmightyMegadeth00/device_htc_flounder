@@ -15,9 +15,5 @@
 /dev/block/platform/sdhci-tegra.3/by-name/MSC   /misc               emmc      defaults                                              defaults
 /dev/block/platform/sdhci-tegra.3/by-name/EBT   /bootloader         emmc      defaults                                              defaults
 /dev/block/platform/sdhci-tegra.3/by-name/PST   /persistent         emmc      defaults                                              defaults
-<<<<<<< HEAD
-/dev/block/zram0                                none                swap      noatime,nodiratime,defaults                                              zramsize=533413200
-=======
-/dev/block/zram0                                none                swap      defaults                                              zramsize=533413200
+/dev/block/zram0                                none                swap      noatime,nodiratime,defaults                           zramsize=533413200
 /devices/platform/tegra-ehci.0                  auto                auto      defaults                                              voldmanaged=usbdisk:auto
->>>>>>> 056e92b... flounder: USBDISK support
