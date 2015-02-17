@@ -80,8 +80,9 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 TARGET_NO_RPC := true
 BOARD_USES_QCOM_HARDWARE_GPS := true
 
-# Use a prebuilt kernel for now
 TARGET_PREBUILT_KERNEL := $(ANDROID_BUILD_TOP)/device/htc/flounder-kernel/kernel
+#KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
+#KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 #TARGET_KERNEL_CONFIG := flounder_defconfig
 #TARGET_KERNEL_SOURCE := kernel/tegra
 #BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
